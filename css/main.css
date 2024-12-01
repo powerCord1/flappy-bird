@@ -1,0 +1,287 @@
+*,
+*:before,
+*:after {
+  /* border box */
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* gpu acceleration */
+  -webkit-transition: translate3d(0, 0, 0);
+  /* select disable */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html,
+body {
+  min-height: 525px;
+  overflow: hidden;
+  font-family: monospace;
+  font-size: 12px;
+  background-color: #24292e;
+}
+
+.supercenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#debugoptions, #playerdebug, #debuginfo {
+  opacity: 0.5;
+  padding: 2px;
+  top: 10px;
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 12px;
+  z-index: 69420;
+  position: fixed;
+  transition: opacity 0.1s ease-out;
+}
+
+#debugoptions {
+  left: 10px;
+}
+
+#playerdebug {
+  right: 10px;
+}
+
+#debuginfo {
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#gamecontainer {
+  /* width: 328px;
+    height: 525px; */
+  min-height: 525px;
+}
+
+
+/*
+Screen - Game
+*/
+
+#gamescreen {
+  /* position: absolute; */
+  /* width: 336px;
+    height: 525px; */
+}
+
+#sky {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 80%;
+  background-image: url('../assets/sky.png');
+  background-repeat: repeat-x;
+  background-position: 0px 100%;
+  background-color: #4ec0ca;
+  -webkit-animation: animSky 7s linear infinite;
+  animation: animSky 7s linear infinite;
+}
+
+#flyarea {
+  position: absolute;
+  bottom: 0;
+  height: 420px;
+  width: 100%;
+}
+
+#ceiling {
+  position: absolute;
+  top: -16px;
+  height: 16px;
+  width: 100%;
+  background-image: url('../assets/ceiling.png');
+  background-repeat: repeat-x;
+  -webkit-animation: animCeiling 481ms linear infinite;
+  animation: animCeiling 481ms linear infinite;
+}
+
+#land {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  background-image: url('../assets/land.png');
+  background-repeat: repeat-x;
+  background-position: 0px 0px;
+  background-color: #ded895;
+  -webkit-animation: animLand 1600ms linear infinite;
+  animation: animLand 1600ms linear infinite;
+}
+
+#bigscore {
+  position: absolute;
+  top: 20px;
+  transform: translate(0, 100%);
+  z-index: 100;
+}
+
+#bigscore img {
+  display: inline-block;
+  padding: 1px;
+}
+
+#splash {
+  position: absolute;
+  opacity: 0;
+  top: 100px;
+  width: 188px;
+  height: 170px;
+  background-image: url('../assets/splash.png');
+  background-repeat: no-repeat;
+}
+
+#scoreboard {
+  position: absolute;
+  display: none;
+  opacity: 0;
+  top: 64px;
+  width: 236px;
+  height: 280px;
+  background-image: url('../assets/scoreboard.png');
+  background-repeat: no-repeat;
+  z-index: 1000;
+}
+
+#medal {
+  position: absolute;
+  opacity: 0;
+  top: 114px;
+  left: 32px;
+  width: 44px;
+  height: 44px;
+}
+
+#currentscore {
+  position: absolute;
+  top: 105px;
+  left: 107px;
+  width: 104px;
+  height: 14px;
+  text-align: right;
+}
+
+#currentscore img {
+  padding-left: 2px;
+}
+
+#highscore {
+  position: absolute;
+  top: 147px;
+  left: 107px;
+  width: 104px;
+  height: 14px;
+  text-align: right;
+}
+
+#highscore img {
+  padding-left: 2px;
+}
+
+#replay {
+  position: absolute;
+  opacity: 0;
+  top: 205px;
+  left: 61px;
+  height: 115px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.boundingbox {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: 1px solid red;
+}
+
+#player {
+  left: 60px;
+  top: 200px;
+}
+
+.bird {
+  position: absolute;
+  width: 34px;
+  height: 24px;
+  background-image: url('../assets/bob.png');
+  -webkit-animation: animBird 300ms steps(4) infinite;
+  animation: animBird 300ms steps(4) infinite;
+}
+
+.pipe {
+  position: absolute;
+  left: -100px;
+  width: 52px;
+  height: 100%;
+  z-index: 10;
+  -webkit-animation: animPipe 2500ms linear;
+  animation: animPipe 2500ms linear;
+}
+
+.pipe_upper {
+  position: absolute;
+  top: 0;
+  width: 52px;
+  background-image: url('../assets/pipe.png');
+  background-repeat: repeat-y;
+  background-position: center;
+}
+
+.pipe_upper:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 52px;
+  height: 26px;
+  background-image: url('../assets/pipe-down.png');
+}
+
+.pipe_lower {
+  position: absolute;
+  bottom: 0;
+  width: 52px;
+  background-image: url('../assets/pipe.png');
+  background-repeat: repeat-y;
+  background-position: center;
+}
+
+.pipe_lower:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 52px;
+  height: 26px;
+  background-image: url('../assets/pipe-up.png');
+}
+
+#footer {
+  padding: 5px;
+  bottom: 3px;
+  left: 3px;
+  color: wheat;
+  font-size: .9rem;
+
+  text-align: center;
+}
+
+#footer a,
+#footer a:link,
+#footer a:visited,
+#footer a:hover,
+#footer a:active {
+  padding: 2px;
+  text-decoration: none;
+  color: wheat;
+}
